@@ -37,6 +37,5 @@ AC_CHECK_FUNCS([memset])
 # C99
 CFLAGS="$CFLAGS -std=c99"
 
-AC_CONFIG_FILES([Makefile
-                 src/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile])
 AC_OUTPUT
