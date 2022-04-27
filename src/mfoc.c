@@ -468,6 +468,11 @@ int main(int argc, char *const argv[])
   }
   fflush(stdout);
 
+  // if last default key trying is successful, the next recover with known sector will fail
+  // add these statements to return reader to normal working state
+  mf_configure(r.pdi);
+  mf_anticollision(t, r);
+
   // Return the first (exploit) sector encrypted with the default key or -1 (we have all keys)
   e_sector = find_exploit_sector(t);
   //mf_enhanced_auth(e_sector, 0, t, r, &d, pk, 'd'); // AUTH + Get Distances mode
